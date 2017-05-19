@@ -1,0 +1,13 @@
+---
+
+- name: "Install Redis"
+  action: apt pkg=$item state=installed
+  with_items:
+   - redis-server
+  tags: redis
+
+- name: "Start service Redis"
+  service: name=redis state=started enabled=true
+  ignore_errors: yes
+  tags: redis
+

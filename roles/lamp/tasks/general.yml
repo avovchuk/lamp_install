@@ -1,0 +1,15 @@
+---
+
+- name: "apt-get update"
+  apt:
+    update_cache: yes
+
+
+- name: "Install apache2, php, and modules"
+  action: apt  name=$item state=installed
+  with_items:
+   - "{{ default_software }}"
+
+
+- name: "Apache2 service state"
+  service: name=apache2 state=started enabled=yes

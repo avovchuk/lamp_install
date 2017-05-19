@@ -1,0 +1,9 @@
+- name: "install MySql"
+  include: mysql.yml
+
+- name: "install apache2, php"
+  include: general.yml
+- name: "install redis"
+  include: redis.yml
+  tags:
+   - redis
